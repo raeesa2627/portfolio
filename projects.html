@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Raeesa Portfolio</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", system-ui, sans-serif;
+    }
+
+    :root {
+      --primary: #c77dff;
+      --secondary: #e0aaff;
+      --dark-bg: #0a0614;
+      --card-bg: #1a0e2e;
+      --text-main: #ffffff;
+      --text-muted: #b0b0b0;
+      --accent: #c77dff;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0a0614 0%, #16213e 50%, #0f3460 100%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 50px;
+      background: rgba(10, 6, 20, 0.7);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(199, 125, 255, 0.1);
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      position: absolute;
+      left: 50px;
+      font-size: 28px;
+      font-weight: bold;
+      color: var(--primary);
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a i {
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .projects-section {
+      padding: 60px 40px;
+      min-height: 100vh;
+    }
+
+    .projects-section h1 {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5em;
+      color: var(--primary);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-card {
+      background: rgba(26, 14, 46, 0.8);
+      border: 1px solid rgba(199, 125, 255, 0.2);
+      border-radius: 10px;
+      padding: 25px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-card:hover {
+      background: rgba(26, 14, 46, 1);
+      border-color: var(--primary);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(199, 125, 255, 0.2);
+    }
+
+    .project-card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+
+    .project-card p {
+      color: var(--text-muted);
+      margin-bottom: 15px;
+      font-size: 0.95em;
+      flex-grow: 1;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(199, 125, 255, 0.1);
+    }
+
+    .project-lang {
+      background: rgba(199, 125, 255, 0.1);
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.85em;
+    }
+
+    .project-link {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .project-link:hover {
+      color: var(--text-main);
+    }
+
+    .project-badge {
+      display: inline-block;
+      background: rgba(199, 125, 255, 0.15);
+      color: var(--primary);
+      padding: 3px 8px;
+      border-radius: 15px;
+      font-size: 0.75em;
+      margin-right: 8px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        gap: 20px;
+      }
+
+      nav a {
+        font-size: 12px;
+      }
+
+      .projects-section {
+        padding: 40px 20px;
+      }
+
+      .projects-section h1 {
+        font-size: 1.8em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">< RT /></div>
+    <nav>
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="about.html"><i class="fa-solid fa-star"></i> Skills</a>
+      <a href="projects.html"><i class="fa-solid fa-code"></i> Projects</a>
+      <a href="experience.html"><i class="fa-solid fa-briefcase"></i> Experience</a>
+      <a href="resume.pdf"><i class="fa-solid fa-file"></i> Resume</a>
+      <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
+    </nav>
+  </header>
+
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <h1><i class="fa-solid fa-code"></i> My Projects</h1>
+    
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div>
+          <h3>frontend_dashboard</h3>
+          <p>A responsive dashboard built with modern JavaScript</p>
+          <span class="project-badge">JavaScript</span>
+        </div>
+        <div class="project-meta">
+          <span class="project-lang">JavaScript</span>
+          <a href="https://github.com/raeesa2627/frontend_dashboard" target="_blank" class="project-link">
+            View <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div>
+          <h3>AI Interview Preparation Platform</h3>
+          <p>Artificial Intelligence project exploring AI technologies</p>
+          <span class="project-badge">HTML</span>
+        </div>
+        <div class="project-meta">
+          <span class="project-lang">HTML</span>
+          <a href="https://github.com/raeesa2627/AI" target="_blank" class="project-link">
+            View <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="project-card">
+        <div>
+          <h3>sales_dashboard</h3>
+          <p>TypeScript-based dashboard for sales analytics and metrics</p>
+          <span class="project-badge">TypeScript</span>
+        </div>
+        <div class="project-meta">
+          <span class="project-lang">TypeScript</span>
+          <a href="https://github.com/raeesa2627/sales_dashboard" target="_blank" class="project-link">
+            View <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="project-card">
+        <div>
+          <h3>hennge-password-challenge</h3>
+          <p>HENNGE frontend password validation challenge built with React and TypeScript</p>
+          <span class="project-badge">React</span>
+          <span class="project-badge">TypeScript</span>
+        </div>
+        <div class="project-meta">
+          <span class="project-lang">TypeScript</span>
+          <a href="https://github.com/raeesa2627/hennge-password-challenge" target="_blank" class="project-link">
+            View <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 6 -->
+      <div class="project-card">
+        <div>
+          <h3>SafeClick</h3>
+          <p>AI-powered cybersecurity tool that protects users from malicious links, phishing scams, and fake job offers. Scans URLs, PDFs, and media files before opening.</p>
+          <span class="project-badge">AI</span>
+          <span class="project-badge">Security</span>
+        </div>
+        <div class="project-meta">
+          <span class="project-lang">HTML</span>
+          <a href="https://github.com/raeesa2627/SafeClick" target="_blank" class="project-link">
+            View <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 7 -->
+      <!-- Project 8 -->
+      <div class="project-card">
+        <div>
+          <h3>SKED.AI</h3>
+          <p>AI scheduling project (Forked)</p>
+          <span class="project-badge">JavaScript</span>
+          <span class="project-badge">Fork</span>
+        </div>
+        <div class="project-meta">
+          <span class="project-lang">JavaScript</span>
+          <a href="https://github.com/raeesa2627/SKED.AI" target="_blank" class="project-link">
+            View <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align: center; padding: 40px; color: var(--text-muted); margin-top: 60px;">
+    <p>&copy; 2026 Raeesa. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
