@@ -395,7 +395,7 @@
       <a href="about.html"><i class="fa-solid fa-star"></i> Skills</a>
       <a href="projects.html"><i class="fa-solid fa-code"></i> Projects</a>
       <a href="experience.html"><i class="fa-solid fa-briefcase"></i> Experience</a>
-      <a href="resume.pdf"><i class="fa-solid fa-file"></i> Resume</a>
+      <a href="RESUME-.pdf"><i class="fa-solid fa-file"></i> Resume</a>
       <a href="contact.html"><i class="fa-solid fa-envelope"></i> Contact</a>
     </nav>
   </header>
@@ -404,7 +404,7 @@
   <section class="hero">
     <div class="hero-content">
       <h1 class="greeting">Hi there, I'm Raeesa <span class="emoji">👋</span></h1>
-      <h2 class="job-title">Frontend Developer 🚀</h2>
+      <h2 class="job-title"></h2>
       <p class="description">
         Passionate about building intelligent web applications using modern technologies. 
         I love transforming ideas into scalable AI-driven solutions and creating seamless user experiences.
@@ -426,7 +426,7 @@
         <a href="contact.html" class="btn btn-primary">
           <i class="fas fa-envelope"></i> Contact Me
         </a>
-        <a href="resume.pdf" class="btn btn-primary">
+        <a href="RESUME-.pdf" class="btn btn-primary">
           <i class="fas fa-download"></i> Download Resume
         </a>
       </div>
@@ -454,21 +454,35 @@
 
     // Typing Effect for Job Title
     const jobTitles = [
-      'Frontend Developer'
+      "Full Stack Developer",
+      "AI Enthusiast"
     ];
 
     let titleIndex = 0;
     let charIndex = 0;
+    let deleting = false;
     const jobTitleElement = document.querySelector('.job-title');
 
     function typeEffect() {
       const currentTitle = jobTitles[titleIndex];
-      
-      if (charIndex < currentTitle.length) {
-        jobTitleElement.textContent = currentTitle.substring(0, charIndex + 1);
-        charIndex++;
-        setTimeout(typeEffect, 80);
+
+      if (!deleting) {
+        jobTitleElement.textContent = currentTitle.substring(0, charIndex++);
+        if (charIndex > currentTitle.length) {
+          deleting = true;
+          setTimeout(typeEffect, 1200); // Wait before deleting
+          return;
+        }
+      } else {
+        jobTitleElement.textContent = currentTitle.substring(0, charIndex--);
+        if (charIndex < 0) {
+          deleting = false;
+          titleIndex = (titleIndex + 1) % jobTitles.length;
+          charIndex = 0;
+        }
       }
+
+      setTimeout(typeEffect, deleting ? 50 : 80);
     }
 
     typeEffect();
